@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "ui5-wcr": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@ui5/webcomponents-react-mcp@latest"
+      ]
+    }
+  }
+}

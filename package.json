@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ui5/webcomponents": "^2.22.0",
+    "@ui5/webcomponents-fiori": "^2.22.0",
     "@ui5/webcomponents-react": "^2.21.3",
     "next": "16.2.6",
     "react": "19.2.4",
@@ -25,5 +26,11 @@
     "eslint-config-next": "16.2.6",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "pnpm": {
+    "ignoredBuiltDependencies": [
+      "sharp",
+      "unrs-resolver"
+    ]
   }
 }

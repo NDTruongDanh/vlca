@@ -1,9 +1,11 @@
+import { Search, Bell, ChevronDown } from "lucide-react";
+
 export function CommandCenterHeader() {
   return (
     <header className="fixed top-0 right-0 h-16 z-30 border-b border-outline-variant bg-white flex items-center justify-between px-6" style={{ width: 'calc(100% - 240px)' }}>
       <div className="flex items-center gap-4 flex-1">
         <div className="relative w-64">
-          <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" size={16} />
           <input className="w-full pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded focus:border-primary focus:ring-1 focus:ring-primary text-sm placeholder:text-outline outline-none transition-all" placeholder="Search logistics..." type="text"/>
         </div>
       </div>
@@ -12,13 +14,13 @@ export function CommandCenterHeader() {
       </div>
       <div className="flex items-center justify-end gap-2 flex-1">
         <button className="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors active:opacity-70">
-          <span className="material-symbols-outlined">notifications</span>
+          <Bell size={20} />
         </button>
         <div className="h-6 w-[1px] bg-outline-variant mx-2"></div>
         <button className="flex items-center gap-2 hover:bg-surface-container-high p-1 pr-3 rounded-full transition-colors border border-transparent hover:border-outline-variant active:opacity-70">
           <img alt="User Avatar" className="w-8 h-8 rounded-full bg-surface-container-highest object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoeqBmWWzoqPPetbxCjAf5hYlpj1cZjE9U_yLJscKuMuGaFOo8K5L8V3Ydpxc30CGGb1kCagr59cjukPA3swCzXNYSHJ5D2CtsPN7DshDpR3DpyoxgFltIO5mfU4-7toM2LMtILxiGwwkthauyiUjUQYeIh8cKeEsb3ADllL9CDdD3iM4ze9Sta0IV2qlMBp69J0__PBxjhSVsIk7XWwhLfCmUWNhSugFD-0WO_xEw-ahges2J8KwYGvqg_1zmLFur9mP-puGFqerB"/>
           <span className="text-sm font-semibold text-on-surface">Tran V.</span>
-          <span className="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span>
+          <ChevronDown className="text-on-surface-variant" size={16} />
         </button>
       </div>
     </header>

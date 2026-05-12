@@ -1,3 +1,5 @@
+import { AlertTriangle } from "lucide-react";
+
 export function CBAMRiskGauge() {
   return (
     <div className="col-span-12 md:col-span-8 bg-surface-container-lowest rounded-lg border border-outline-variant shadow-sm flex flex-col">
@@ -26,7 +28,7 @@ export function CBAMRiskGauge() {
             </div>
           </div>
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-error-container text-on-error-container rounded-full border border-status-error/20">
-            <span className="material-symbols-outlined text-[18px]">warning</span>
+            <AlertTriangle size={18} />
             <span className="text-xs font-bold">HIGH SEVERITY</span>
           </div>
         </div>

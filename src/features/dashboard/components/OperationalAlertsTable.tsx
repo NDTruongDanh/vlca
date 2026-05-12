@@ -6,11 +6,13 @@ import { TableHeaderCell } from "@ui5/webcomponents-react/TableHeaderCell";
 import { TableRow } from "@ui5/webcomponents-react/TableRow";
 import { TableCell } from "@ui5/webcomponents-react/TableCell";
 
+import { AlertTriangle, Clock, Leaf, FileText } from "lucide-react";
+
 const alerts = [
-  { icon: "warning", color: "text-status-error", title: "High Idling Alert - Unit VN-482", description: "Idling > 45 mins at Port of Hai Phong.", time: "10m ago" },
-  { icon: "schedule", color: "text-status-warning", title: "Delayed Delivery - Route North-South", description: "Expected delay 2 hours due to traffic.", time: "1h ago" },
-  { icon: "co2", color: "text-status-error", title: "Emission Threshold Exceeded", description: "Fleet segment B exceeded daily limit by 15%.", time: "3h ago" },
-  { icon: "event_note", color: "text-on-primary-container", title: "Compliance Reminder", description: "Q3 Emissions Report due in 5 days.", time: "1d ago" }
+  { Icon: AlertTriangle, color: "text-status-error", title: "High Idling Alert - Unit VN-482", description: "Idling > 45 mins at Port of Hai Phong.", time: "10m ago" },
+  { Icon: Clock, color: "text-status-warning", title: "Delayed Delivery - Route North-South", description: "Expected delay 2 hours due to traffic.", time: "1h ago" },
+  { Icon: Leaf, color: "text-status-error", title: "Emission Threshold Exceeded", description: "Fleet segment B exceeded daily limit by 15%.", time: "3h ago" },
+  { Icon: FileText, color: "text-on-primary-container", title: "Compliance Reminder", description: "Q3 Emissions Report due in 5 days.", time: "1d ago" }
 ];
 
 export function OperationalAlertsTable() {
@@ -33,7 +35,7 @@ export function OperationalAlertsTable() {
           {alerts.map((alert, idx) => (
             <TableRow key={idx}>
               <TableCell>
-                <span className={`material-symbols-outlined ${alert.color}`}>{alert.icon}</span>
+                <alert.Icon className={alert.color} size={20} />
               </TableCell>
               <TableCell>
                 <div className="flex flex-col">

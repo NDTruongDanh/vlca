@@ -9,21 +9,19 @@ const scopeOptions = [
 export function ReportExportDataConfiguration() {
   return (
     <section className="rounded-xl border border-outline-variant bg-surface-container-lowest p-6 shadow-sm">
-      <h2 className="text-lg font-semibold text-on-surface">
-        Data Configuration
-      </h2>
-      <p className="mt-1 text-sm text-on-surface-variant">
+      <h2 className="text-headline-md text-on-surface">Data Configuration</h2>
+      <p className="mt-1 text-body-md text-on-surface-variant">
         Define the reporting boundary and emissions scopes for this export.
       </p>
       <div className="mt-4 grid grid-cols-1 gap-x-8 gap-y-6 md:grid-cols-2">
         <div className="flex flex-col gap-2">
-          <label className="text-sm text-on-surface-variant">
+          <label className="text-label-md text-on-surface-variant">
             Reporting Period <span className="text-status-error">*</span>
           </label>
           <div className="flex items-center gap-2">
             <div className="relative flex-1">
               <input
-                className="h-9 w-full rounded-md border border-outline-variant bg-white pl-3 pr-9 text-sm text-on-surface outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary"
+                className="h-9 w-full rounded-md border border-outline-variant bg-white pl-3 pr-9 text-body-md text-on-surface outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary"
                 type="text"
                 defaultValue="01 Jan 2024"
               />
@@ -32,7 +30,7 @@ export function ReportExportDataConfiguration() {
             <span className="text-on-surface-variant">-</span>
             <div className="relative flex-1">
               <input
-                className="h-9 w-full rounded-md border border-outline-variant bg-white pl-3 pr-9 text-sm text-on-surface outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary"
+                className="h-9 w-full rounded-md border border-outline-variant bg-white pl-3 pr-9 text-body-md text-on-surface outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary"
                 type="text"
                 defaultValue="31 Dec 2024"
               />
@@ -42,11 +40,11 @@ export function ReportExportDataConfiguration() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="text-sm text-on-surface-variant">
+          <label className="text-label-md text-on-surface-variant">
             Organizational Boundary
           </label>
           <div className="relative">
-            <select className="h-9 w-full appearance-none rounded-md border border-outline-variant bg-white pl-3 pr-9 text-sm text-on-surface outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary">
+            <select className="h-9 w-full appearance-none rounded-md border border-outline-variant bg-white pl-3 pr-9 text-body-md text-on-surface outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary">
               <option>Global Fleet Operations (All Entities)</option>
               <option>EMEA Logistics Hub</option>
               <option>APAC Distribution Network</option>
@@ -57,14 +55,14 @@ export function ReportExportDataConfiguration() {
         </div>
 
         <div className="flex flex-col gap-3 md:col-span-2">
-          <label className="text-sm text-on-surface-variant">
+          <label className="text-label-md text-on-surface-variant">
             Emissions Scopes
           </label>
           <div className="flex flex-wrap gap-6">
             {scopeOptions.map((scope) => (
               <label
                 key={scope.id}
-                className="flex items-center gap-2 text-sm text-on-surface"
+                className="flex items-center gap-2 text-body-md text-on-surface"
               >
                 <span className="relative inline-flex h-4 w-4 items-center justify-center">
                   <input

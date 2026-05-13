@@ -14,23 +14,23 @@ export function DispatchPlanning() {
       {/* Header Actions */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
         <div>
-          <h2 className="font-headline-lg text-headline-lg text-on-surface">
+          <h2 className="text-headline-lg text-on-surface">
             Dispatch Planning
           </h2>
-          <p className="font-body-md text-body-md text-on-surface-variant mt-1">
+          <p className="text-body-md text-on-surface-variant mt-1">
             Manage daily loads, optimize routes, and minimize fleet emissions.
           </p>
         </div>
         <div className="flex gap-3 flex-wrap">
-          <button className="px-4 py-2 border border-outline-variant text-on-surface hover:bg-surface-container-low rounded-lg font-title-md text-title-md transition-colors flex items-center gap-2">
+          <button className="px-4 py-2 border border-outline-variant text-on-surface hover:bg-surface-container-low rounded-lg text-body-md font-semibold transition-colors flex items-center gap-2">
             <Icon name="map" style={{ width: "18px", height: "18px" }} />
             Re-route
           </button>
-          <button className="px-4 py-2 border border-outline-variant text-on-surface hover:bg-surface-container-low rounded-lg font-title-md text-title-md transition-colors flex items-center gap-2">
+          <button className="px-4 py-2 border border-outline-variant text-on-surface hover:bg-surface-container-low rounded-lg text-body-md font-semibold transition-colors flex items-center gap-2">
             <Icon name="add" style={{ width: "18px", height: "18px" }} />
             Review
           </button>
-          <button className="px-6 py-2 bg-primary text-white hover:bg-primary/90 rounded-lg font-title-md text-title-md shadow-sm transition-colors flex items-center gap-2">
+          <button className="px-6 py-2 bg-primary text-white hover:bg-primary/90 rounded-lg text-body-md font-semibold shadow-sm transition-colors flex items-center gap-2">
             <Icon
               name="slim-arrow-down"
               style={{

@@ -9,19 +9,43 @@ import { TableCell } from "@ui5/webcomponents-react/TableCell";
 import { AlertTriangle, Clock, Leaf, FileText } from "lucide-react";
 
 const alerts = [
-  { Icon: AlertTriangle, color: "text-status-error", title: "High Idling Alert - Unit VN-482", description: "Idling > 45 mins at Port of Hai Phong.", time: "10m ago" },
-  { Icon: Clock, color: "text-status-warning", title: "Delayed Delivery - Route North-South", description: "Expected delay 2 hours due to traffic.", time: "1h ago" },
-  { Icon: Leaf, color: "text-status-error", title: "Emission Threshold Exceeded", description: "Fleet segment B exceeded daily limit by 15%.", time: "3h ago" },
-  { Icon: FileText, color: "text-on-primary-container", title: "Compliance Reminder", description: "Q3 Emissions Report due in 5 days.", time: "1d ago" }
+  {
+    Icon: AlertTriangle,
+    color: "text-status-error",
+    title: "High Idling Alert - Unit VN-482",
+    description: "Idling > 45 mins at Port of Hai Phong.",
+    time: "10m ago",
+  },
+  {
+    Icon: Clock,
+    color: "text-status-warning",
+    title: "Delayed Delivery - Route North-South",
+    description: "Expected delay 2 hours due to traffic.",
+    time: "1h ago",
+  },
+  {
+    Icon: Leaf,
+    color: "text-status-error",
+    title: "Emission Threshold Exceeded",
+    description: "Fleet segment B exceeded daily limit by 15%.",
+    time: "3h ago",
+  },
+  {
+    Icon: FileText,
+    color: "text-on-primary-container",
+    title: "Compliance Reminder",
+    description: "Q3 Emissions Report due in 5 days.",
+    time: "1d ago",
+  },
 ];
 
 export function OperationalAlertsTable() {
   return (
     <div className="col-span-12 md:col-span-7 bg-surface-container-lowest rounded-lg border border-outline-variant shadow-sm flex flex-col overflow-hidden">
       <div className="px-6 py-4 border-b border-outline-variant flex justify-between items-center bg-surface-container-lowest">
-        <h2 className="text-lg font-bold text-on-surface">Operational Alerts</h2>
-        <span 
-          className="px-2 py-0.5 bg-error-container text-on-error-container text-xs font-bold rounded-full"
+        <h2 className="text-headline-md text-on-surface">Operational Alerts</h2>
+        <span
+          className="px-2 py-0.5 bg-error-container text-on-error-container text-label-sm rounded-full"
           aria-label="4 new alerts"
         >
           4 New
@@ -32,25 +56,53 @@ export function OperationalAlertsTable() {
           accessibleName="Operational Alerts Table"
           headerRow={
             <TableHeaderRow>
-              <TableHeaderCell width="48px" aria-hidden="true"></TableHeaderCell>
-              <TableHeaderCell>Alert Details</TableHeaderCell>
-              <TableHeaderCell width="100px" horizontalAlign="End">Time</TableHeaderCell>
+              <TableHeaderCell
+                width="48px"
+                aria-hidden="true"
+              ></TableHeaderCell>
+              <TableHeaderCell className="text-label-md text-on-surface-variant uppercase">
+                Alert Details
+              </TableHeaderCell>
+              <TableHeaderCell
+                width="100px"
+                horizontalAlign="End"
+                className="text-label-md text-on-surface-variant uppercase"
+              >
+                Time
+              </TableHeaderCell>
             </TableHeaderRow>
           }
         >
           {alerts.map((alert, idx) => (
-            <TableRow key={idx}>
-              <TableCell>
-                <alert.Icon className={alert.color} size={20} aria-hidden="true" />
+            <TableRow
+              key={idx}
+              className={
+                idx % 2 === 0
+                  ? "bg-surface"
+                  : "bg-surface-container-low rounded-sm"
+              }
+            >
+              <TableCell className="px-3 py-2">
+                <alert.Icon
+                  className={alert.color}
+                  size={20}
+                  aria-hidden="true"
+                />
               </TableCell>
-              <TableCell>
+              <TableCell className="px-3 py-2">
                 <div className="flex flex-col">
-                  <span className="text-sm font-semibold text-on-surface">{alert.title}</span>
-                  <span className="text-xs text-on-surface-variant">{alert.description}</span>
+                  <span className="text-body-md font-semibold text-on-surface">
+                    {alert.title}
+                  </span>
+                  <span className="text-body-md text-on-surface-variant">
+                    {alert.description}
+                  </span>
                 </div>
               </TableCell>
-              <TableCell>
-                <span className="text-xs text-on-surface-variant">{alert.time}</span>
+              <TableCell className="px-3 py-2">
+                <span className="text-label-sm text-on-surface-variant">
+                  {alert.time}
+                </span>
               </TableCell>
             </TableRow>
           ))}

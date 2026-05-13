@@ -102,14 +102,12 @@ export function OrderManagementTable({
       style={{ height: "500px" }}
     >
       <div className="p-4 border-b border-outline-variant flex justify-between items-center bg-surface-bright">
-        <h3 className="font-title-lg text-title-lg text-on-surface">
-          Order Management
-        </h3>
+        <h3 className="text-headline-md text-on-surface">Order Management</h3>
         <div className="flex gap-2">
-          <span className="bg-surface-container-high text-on-surface px-3 py-1 rounded-full font-label-md text-label-md">
+          <span className="bg-surface-container-high text-on-surface px-3 py-1 rounded-full text-label-md">
             {pendingCount} Pending
           </span>
-          <span className="bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-label-md text-label-md">
+          <span className="bg-primary-container text-on-primary-container px-3 py-1 rounded-full text-label-md">
             {selectedCount} Selected
           </span>
         </div>
@@ -125,27 +123,27 @@ export function OrderManagementTable({
                   className="border-outline-variant text-primary focus:ring-primary"
                 />
               </th>
-              <th className="p-3 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">
+              <th className="p-3 text-label-md text-on-surface-variant uppercase">
                 Order ID
               </th>
-              <th className="p-3 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">
+              <th className="p-3 text-label-md text-on-surface-variant uppercase">
                 Status
               </th>
-              <th className="p-3 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">
+              <th className="p-3 text-label-md text-on-surface-variant uppercase">
                 Destination
               </th>
-              <th className="p-3 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">
+              <th className="p-3 text-label-md text-on-surface-variant uppercase">
                 Window
               </th>
-              <th className="p-3 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">
+              <th className="p-3 text-label-md text-on-surface-variant uppercase">
                 Vehicle
               </th>
-              <th className="p-3 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-right">
+              <th className="p-3 text-label-md text-on-surface-variant uppercase text-right">
                 Est. CO2e
               </th>
             </tr>
           </thead>
-          <tbody className="font-tabular-nums text-tabular-nums divide-y divide-outline-variant/50">
+          <tbody className="text-body-md tabular-nums divide-y divide-outline-variant/50">
             {displayOrders.map((order) => {
               const statusConfig = getStatusBadge(order.status);
               const isSelected = order.selected !== false;
@@ -172,7 +170,7 @@ export function OrderManagementTable({
                   </td>
                   <td className="p-3">
                     <span
-                      className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold ${statusConfig.bg} ${statusConfig.text}`}
+                      className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-label-sm ${statusConfig.bg} ${statusConfig.text}`}
                     >
                       <Icon
                         name={

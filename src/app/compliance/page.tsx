@@ -41,7 +41,7 @@ export default function CompliancePage() {
     <div className="flex h-full flex-col bg-background">
       <section className="bg-surface-container-lowest px-container-padding pt-6">
         <div className="mx-auto w-full max-w-[1400px]">
-          <h1 className="text-2xl font-semibold text-on-surface">
+          <h1 className="text-headline-lg text-on-surface">
             {activeCopy.title}
           </h1>
           <div className="mt-4 border-b border-outline-variant" role="tablist">
@@ -51,7 +51,7 @@ export default function CompliancePage() {
                 role="tab"
                 aria-selected={activeTab === "emissions"}
                 onClick={() => setActiveTab("emissions")}
-                className={`-mb-px border-b-2 px-1 pb-3 text-sm transition-colors hover:text-on-surface ${
+                className={`-mb-px border-b-2 px-1 pb-3 text-label-md transition-colors hover:text-on-surface ${
                   activeTab === "emissions"
                     ? "border-primary font-semibold text-primary"
                     : "border-transparent text-on-surface-variant"
@@ -64,7 +64,7 @@ export default function CompliancePage() {
                 role="tab"
                 aria-selected={activeTab === "partner"}
                 onClick={() => setActiveTab("partner")}
-                className={`-mb-px border-b-2 px-1 pb-3 text-sm transition-colors hover:text-on-surface ${
+                className={`-mb-px border-b-2 px-1 pb-3 text-label-md transition-colors hover:text-on-surface ${
                   activeTab === "partner"
                     ? "border-primary font-semibold text-primary"
                     : "border-transparent text-on-surface-variant"
@@ -77,7 +77,7 @@ export default function CompliancePage() {
                 role="tab"
                 aria-selected={activeTab === "report"}
                 onClick={() => setActiveTab("report")}
-                className={`-mb-px border-b-2 px-1 pb-3 text-sm transition-colors hover:text-on-surface ${
+                className={`-mb-px border-b-2 px-1 pb-3 text-label-md transition-colors hover:text-on-surface ${
                   activeTab === "report"
                     ? "border-primary font-semibold text-primary"
                     : "border-transparent text-on-surface-variant"

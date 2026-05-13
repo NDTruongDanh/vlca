@@ -53,7 +53,7 @@ export function AppSidebar() {
               aria-current={isActive ? "page" : undefined}
             >
               <Icon size={20} fill={isActive ? "currentColor" : "none"} />
-              <span className="font-semibold">{item.label}</span>
+              <span className="text-body-md font-semibold">{item.label}</span>
             </Link>
           );
         })}
@@ -74,7 +74,7 @@ export function AppSidebar() {
               aria-current={isActive ? "page" : undefined}
             >
               <Icon size={20} />
-              <span className="font-semibold">{item.label}</span>
+              <span className="text-body-md font-semibold">{item.label}</span>
             </Link>
           );
         })}

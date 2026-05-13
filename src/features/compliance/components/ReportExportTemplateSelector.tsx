@@ -27,10 +27,10 @@ const templates = [
 export function ReportExportTemplateSelector() {
   return (
     <section className="rounded-xl border border-outline-variant bg-surface-container-lowest p-6 shadow-sm">
-      <h2 className="text-lg font-semibold text-on-surface">
+      <h2 className="text-headline-md text-on-surface">
         Select Report Template
       </h2>
-      <p className="mt-1 text-sm text-on-surface-variant">
+      <p className="mt-1 text-body-md text-on-surface-variant">
         Choose a recognized reporting format for your compliance submission.
       </p>
       <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-3">
@@ -50,10 +50,10 @@ export function ReportExportTemplateSelector() {
                   <div className="flex items-start justify-between">
                     <Icon className="h-5 w-5 text-primary" />
                   </div>
-                  <h3 className="mt-3 text-base font-semibold text-on-surface">
+                  <h3 className="mt-3 text-body-lg font-semibold text-on-surface">
                     {template.title}
                   </h3>
-                  <p className="mt-1 text-sm leading-snug text-on-surface-variant">
+                  <p className="mt-1 text-body-md leading-snug text-on-surface-variant">
                     {template.description}
                   </p>
                 </div>

@@ -38,7 +38,7 @@ export function AppHeader() {
             className="w-8 h-8 rounded-full bg-surface-container-highest object-cover"
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoeqBmWWzoqPPetbxCjAf5hYlpj1cZjE9U_yLJscKuMuGaFOo8K5L8V3Ydpxc30CGGb1kCagr59cjukPA3swCzXNYSHJ5D2CtsPN7DshDpR3DpyoxgFltIO5mfU4-7toM2LMtILxiGwwkthauyiUjUQYeIh8cKeEsb3ADllL9CDdD3iM4ze9Sta0IV2qlMBp69J0__PBxjhSVsIk7XWwhLfCmUWNhSugFD-0WO_xEw-ahges2J8KwYGvqg_1zmLFur9mP-puGFqerB"
           />
-          <span className="text-sm font-semibold text-on-surface">Tran V.</span>
+          <span className="text-label-md text-on-surface">Tran V.</span>
           <Icon name="slim-arrow-down" className="text-on-surface-variant" />
         </button>
       </div>

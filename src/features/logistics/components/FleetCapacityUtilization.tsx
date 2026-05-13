@@ -30,7 +30,7 @@ export function FleetCapacityUtilization({
   return (
     <div className="bg-surface-container-lowest rounded-xl shadow-[0_2px_4px_rgba(0,0,0,0.05)] border border-outline-variant p-5 flex-1">
       <div className="flex justify-between items-start mb-4">
-        <h3 className="font-title-lg text-title-lg text-on-surface">
+        <h3 className="text-headline-md text-on-surface">
           Fleet Capacity Utilization
         </h3>
         <button className="text-on-surface-variant hover:text-primary transition-colors">
@@ -65,11 +65,11 @@ export function FleetCapacityUtilization({
             />
           </svg>
           <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <span className="font-display text-display text-on-surface leading-none">
+            <span className="text-display text-on-surface leading-none">
               {weightPercentage}
-              <span className="text-[20px]">%</span>
+              <span className="text-body-lg font-medium">%</span>
             </span>
-            <span className="font-label-md text-label-md text-on-surface-variant mt-1">
+            <span className="text-label-md text-on-surface-variant mt-1">
               Allocated
             </span>
           </div>
@@ -78,7 +78,7 @@ export function FleetCapacityUtilization({
 
       <div className="space-y-4 mt-2">
         <div>
-          <div className="flex justify-between font-body-md text-body-md mb-1">
+          <div className="flex justify-between text-body-md mb-1">
             <span className="text-on-surface-variant">Weight Distributed</span>
             <span className="font-semibold">
               {weightUsed} / {weightTotal} kg
@@ -92,7 +92,7 @@ export function FleetCapacityUtilization({
           </div>
         </div>
         <div>
-          <div className="flex justify-between font-body-md text-body-md mb-1">
+          <div className="flex justify-between text-body-md mb-1">
             <span className="text-on-surface-variant">Volume (Pallets)</span>
             <span className="font-semibold">
               {volumeUsed} / {volumeTotal}
@@ -110,14 +110,12 @@ export function FleetCapacityUtilization({
       {/* Available Space Metric Mini Card */}
       <div className="bg-secondary-container text-on-secondary-container rounded-xl p-4 flex items-center justify-between border border-outline-variant/30 mt-4">
         <div>
-          <p className="font-label-md text-label-md opacity-80 uppercase tracking-wider mb-1">
+          <p className="text-label-md opacity-80 uppercase mb-1">
             Available Capacity
           </p>
-          <p className="font-headline-md text-headline-md">
+          <p className="text-headline-md">
             {availableCapacity}{" "}
-            <span className="font-body-md text-body-md font-normal opacity-80">
-              spare
-            </span>
+            <span className="text-body-md font-normal opacity-80">spare</span>
           </p>
         </div>
         <div className="w-10 h-10 bg-on-secondary-container/10 rounded-full flex items-center justify-center">

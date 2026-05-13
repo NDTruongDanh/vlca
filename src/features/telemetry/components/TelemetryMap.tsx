@@ -46,7 +46,7 @@ export function TelemetryMap() {
       {/* Live Map Markers (Simulated) */}
       {/* Cruising Vehicle (Green) */}
       <div className="absolute top-[30%] left-[40%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center cursor-pointer group">
-        <div className="bg-surface-container-lowest text-on-surface text-[10px] font-bold px-2 py-0.5 rounded shadow-sm border border-outline-variant mb-1 opacity-0 group-hover:opacity-100 transition-opacity">
+        <div className="bg-surface-container-lowest text-on-surface text-label-sm px-2 py-0.5 rounded shadow-sm border border-outline-variant mb-1 opacity-0 group-hover:opacity-100 transition-opacity">
           VH-1102
         </div>
         <div className="w-4 h-4 bg-[#10B981] rounded-full border-2 border-surface-container-lowest shadow-md z-10" />
@@ -55,7 +55,7 @@ export function TelemetryMap() {
       {/* Excessive Idling Vehicle (Red/Orange glow) */}
       <div className="absolute top-[50%] left-[60%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
         <div className="absolute w-24 h-24 bg-error/20 rounded-full blur-xl -z-10" />
-        <div className="bg-surface-container-lowest text-on-surface text-[10px] font-bold px-2 py-0.5 rounded shadow-sm border border-outline-variant mb-1">
+        <div className="bg-surface-container-lowest text-on-surface text-label-sm px-2 py-0.5 rounded shadow-sm border border-outline-variant mb-1">
           VH-9921
         </div>
         <div className="w-4 h-4 bg-error rounded-full border-2 border-surface-container-lowest shadow-md z-10" />
@@ -63,7 +63,7 @@ export function TelemetryMap() {
 
       {/* Selected Vehicle (Yellow - VH-8842-X) */}
       <div className="absolute top-[45%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-20">
-        <div className="bg-primary text-on-primary text-[11px] font-bold px-2.5 py-1 rounded shadow-md border border-primary mb-1 relative">
+        <div className="bg-primary text-on-primary text-label-sm px-2.5 py-1 rounded shadow-md border border-primary mb-1 relative">
           VH-8842-X
           <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-primary rotate-45" />
         </div>

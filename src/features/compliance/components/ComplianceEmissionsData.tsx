@@ -66,16 +66,18 @@ export function ComplianceEmissionsData() {
           <Card className="cursor-pointer overflow-hidden rounded-xl border border-outline-variant transition-shadow hover:shadow-lg">
             <div className="flex flex-col gap-2 p-4">
               <div className="flex items-center justify-between">
-                <Label className="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">
+                <Label className="text-label-sm uppercase text-on-surface-variant">
                   Total Scope 3
                 </Label>
                 <Icon name="competitor" className="h-5 w-5 text-primary" />
               </div>
               <div className="flex items-baseline gap-1">
-                <span className="text-3xl font-bold text-on-surface">
+                <span className="text-display text-on-surface">
                   15,420.2
                 </span>
-                <span className="text-sm text-on-surface-variant">tCO2e</span>
+                <span className="text-body-md text-on-surface-variant">
+                  tCO2e
+                </span>
               </div>
             </div>
           </Card>
@@ -83,14 +85,14 @@ export function ComplianceEmissionsData() {
           <Card className="cursor-pointer overflow-hidden rounded-xl border border-outline-variant transition-shadow hover:shadow-lg">
             <div className="flex flex-col gap-2 p-4">
               <div className="flex items-center justify-between">
-                <Label className="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">
+                <Label className="text-label-sm uppercase text-on-surface-variant">
                   Supply Chain Partners
                 </Label>
                 <Icon name="collaborate" className="h-5 w-5 text-secondary" />
               </div>
               <div className="flex items-baseline gap-1">
-                <span className="text-3xl font-bold text-on-surface">142</span>
-                <span className="text-sm text-on-surface-variant">
+                <span className="text-display text-on-surface">142</span>
+                <span className="text-body-md text-on-surface-variant">
                   / 150 Reporting partners
                 </span>
               </div>
@@ -100,16 +102,16 @@ export function ComplianceEmissionsData() {
           <Card className="cursor-pointer overflow-hidden rounded-xl border border-outline-variant transition-shadow hover:shadow-lg">
             <div className="flex flex-col gap-2 p-4">
               <div className="flex items-center justify-between">
-                <Label className="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">
+                <Label className="text-label-sm uppercase text-on-surface-variant">
                   Data Completeness
                 </Label>
                 <Icon name="survey" className="h-5 w-5 text-primary" />
               </div>
               <div className="flex items-baseline gap-1">
-                <span className="text-3xl font-bold text-on-surface">
+                <span className="text-display text-on-surface">
                   98.5%
                 </span>
-                <span className="text-sm text-on-surface-variant">
+                <span className="text-body-md text-on-surface-variant">
                   Verified
                 </span>
               </div>
@@ -119,7 +121,7 @@ export function ComplianceEmissionsData() {
 
         <section className="flex min-h-0 flex-col overflow-hidden rounded-xl border border-outline-variant bg-surface-container-lowest shadow-sm">
           <div className="flex items-center justify-between border-b border-outline-variant bg-surface-container-low px-6 py-4">
-            <h2 className="text-lg font-bold text-on-surface">
+            <h2 className="text-headline-md text-on-surface">
               Value Chain Records
             </h2>
             <Button
@@ -136,21 +138,49 @@ export function ComplianceEmissionsData() {
               className="w-full"
               headerRow={
                 <TableHeaderRow sticky>
-                  <TableHeaderCell minWidth="150px" className="pl-6">
+                  <TableHeaderCell
+                    minWidth="150px"
+                    className="pl-6 text-label-md uppercase text-on-surface-variant"
+                  >
                     Partner ID
                   </TableHeaderCell>
-                  <TableHeaderCell minWidth="200px">Category</TableHeaderCell>
-                  <TableHeaderCell minWidth="150px" horizontalAlign="End">
+                  <TableHeaderCell
+                    minWidth="200px"
+                    className="text-label-md uppercase text-on-surface-variant"
+                  >
+                    Category
+                  </TableHeaderCell>
+                  <TableHeaderCell
+                    minWidth="150px"
+                    horizontalAlign="End"
+                    className="text-label-md uppercase text-on-surface-variant"
+                  >
                     Distance (km)
                   </TableHeaderCell>
-                  <TableHeaderCell minWidth="150px" horizontalAlign="End">
+                  <TableHeaderCell
+                    minWidth="150px"
+                    horizontalAlign="End"
+                    className="text-label-md uppercase text-on-surface-variant"
+                  >
                     Fuel Used (L)
                   </TableHeaderCell>
-                  <TableHeaderCell minWidth="150px" horizontalAlign="End">
+                  <TableHeaderCell
+                    minWidth="150px"
+                    horizontalAlign="End"
+                    className="pr-4 text-label-md uppercase text-on-surface-variant"
+                  >
                     CO2e (kg)
                   </TableHeaderCell>
-                  <TableHeaderCell minWidth="150px">Period</TableHeaderCell>
-                  <TableHeaderCell minWidth="150px" className="pr-6">
+                  <TableHeaderCell
+                    minWidth="150px"
+                    className="pl-4 text-label-md uppercase text-on-surface-variant"
+                  >
+                    Period
+                  </TableHeaderCell>
+                  <TableHeaderCell
+                    minWidth="150px"
+                    className="pr-6 text-label-md uppercase text-on-surface-variant"
+                  >
                     Verification
                   </TableHeaderCell>
                 </TableHeaderRow>
@@ -159,29 +189,29 @@ export function ComplianceEmissionsData() {
               {tableData.map((row) => (
                 <TableRow key={row.id}>
                   <TableCell className="pl-6">
-                    <span className="font-mono text-xs text-on-surface-variant">
+                    <span className="text-label-sm tabular-nums text-on-surface-variant">
                       {row.id}
                     </span>
                   </TableCell>
                   <TableCell>{row.category}</TableCell>
                   <TableCell horizontalAlign="End">
-                    <span className="font-mono">{row.distance}</span>
+                    <span className="tabular-nums">{row.distance}</span>
                   </TableCell>
                   <TableCell horizontalAlign="End">
-                    <span className="font-mono">{row.fuel}</span>
+                    <span className="tabular-nums">{row.fuel}</span>
                   </TableCell>
                   <TableCell horizontalAlign="End">
-                    <span className="font-mono font-bold text-primary">
+                    <span className="pr-4 tabular-nums font-semibold text-primary">
                       {row.co2e}
                     </span>
                   </TableCell>
-                  <TableCell>{row.period}</TableCell>
+                  <TableCell className="pl-4">{row.period}</TableCell>
                   <TableCell className="pr-6">
                     <Tag
                       design={
                         row.status === "Verified" ? "Positive" : "Information"
                       }
-                      className="text-[10px] font-bold uppercase"
+                      className="text-label-sm uppercase"
                       icon={
                         <Icon
                           name={

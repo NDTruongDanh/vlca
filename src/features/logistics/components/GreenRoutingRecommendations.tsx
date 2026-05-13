@@ -78,7 +78,7 @@ export function GreenRoutingRecommendations({
 
   return (
     <div className="mt-6">
-      <h3 className="font-title-lg text-title-lg text-on-surface mb-4">
+      <h3 className="text-headline-md text-on-surface mb-4">
         Green Routing &amp; Efficiency Recommendations
       </h3>
 
@@ -101,14 +101,12 @@ export function GreenRoutingRecommendations({
                 style={{ width: "20px", height: "20px", marginTop: "2px" }}
               />
               <div>
-                <h4 className="font-title-md text-title-md font-bold mb-1">
+                <h4 className="text-body-lg font-semibold mb-1">
                   {alert.title}
                 </h4>
-                <p className="font-body-md text-body-md opacity-90">
-                  {alert.description}
-                </p>
+                <p className="text-body-md opacity-90">{alert.description}</p>
                 {alert.action && (
-                  <button className="mt-2 text-sm font-semibold underline hover:opacity-80">
+                  <button className="mt-2 text-label-md font-semibold underline hover:opacity-80">
                     {alert.action}
                   </button>
                 )}
@@ -125,7 +123,7 @@ export function GreenRoutingRecommendations({
               className={`bg-surface-container-lowest rounded-xl p-5 ${route.recommended ? "border-2 border-primary/20 hover:border-primary" : "border border-outline-variant hover:border-outline"} transition-colors cursor-pointer shadow-[0_2px_4px_rgba(0,0,0,0.05)] relative overflow-hidden group`}
             >
               {route.recommended && (
-                <div className="absolute top-0 right-0 bg-primary-container text-on-primary-container px-3 py-1 rounded-bl-lg font-label-md text-label-md font-bold">
+                <div className="absolute top-0 right-0 bg-primary-container text-on-primary-container px-3 py-1 rounded-bl-lg text-label-md font-semibold">
                   Recommended
                 </div>
               )}
@@ -144,8 +142,8 @@ export function GreenRoutingRecommendations({
                   />
                 </div>
                 <div>
-                  <h4 className="font-title-md text-title-md">{route.name}</h4>
-                  <p className="font-label-md text-label-md text-on-surface-variant">
+                  <h4 className="text-body-lg font-semibold">{route.name}</h4>
+                  <p className="text-label-md text-on-surface-variant">
                     {route.subtitle}
                   </p>
                 </div>
@@ -153,25 +151,25 @@ export function GreenRoutingRecommendations({
 
               <div className="grid grid-cols-2 gap-4 mt-4">
                 <div className="bg-surface-container-low p-3 rounded-lg border border-outline-variant/50">
-                  <span className="block font-label-md text-label-md text-on-surface-variant mb-1">
+                  <span className="block text-label-md text-on-surface-variant mb-1">
                     Fuel Consumption
                   </span>
-                  <span className="font-title-lg text-title-lg text-secondary">
+                  <span className="text-headline-md text-secondary">
                     {route.fuelReduction}
                   </span>
                 </div>
                 <div className="bg-surface-container-low p-3 rounded-lg border border-outline-variant/50">
-                  <span className="block font-label-md text-label-md text-on-surface-variant mb-1">
+                  <span className="block text-label-md text-on-surface-variant mb-1">
                     Emissions (CO2e)
                   </span>
-                  <span className="font-title-lg text-title-lg text-secondary">
+                  <span className="text-headline-md text-secondary">
                     {route.emissionsReduction}
                   </span>
                 </div>
               </div>
 
               <div className="mt-4 flex items-center justify-between border-t border-outline-variant pt-3">
-                <span className="font-tabular-nums text-tabular-nums text-on-surface-variant">
+                <span className="tabular-nums text-body-md text-on-surface-variant">
                   {route.transitTime}
                 </span>
                 <Icon

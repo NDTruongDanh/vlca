@@ -101,10 +101,10 @@ export function CompliancePartnerPortal() {
         <section className="overflow-hidden rounded-xl border border-outline-variant bg-surface-container-lowest shadow-sm">
           <div className="flex flex-col gap-3 border-b border-outline-variant bg-surface-container-lowest p-4 md:flex-row md:items-center md:justify-between">
             <div>
-              <h2 className="text-lg font-semibold text-on-surface">
+              <h2 className="text-headline-md text-on-surface">
                 Ecosystem Partners
               </h2>
-              <p className="mt-1 text-sm text-on-surface-variant">
+              <p className="mt-1 text-body-md text-on-surface-variant">
                 Monitor shared emissions data and partner verification status.
               </p>
             </div>
@@ -112,7 +112,7 @@ export function CompliancePartnerPortal() {
               <button
                 type="button"
                 onClick={() => setIsModalOpen(true)}
-                className="w-full rounded-md bg-primary-container px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-primary-container/90 sm:w-auto"
+                className="w-full rounded-md bg-primary-container px-4 py-2 text-body-md font-semibold text-white shadow-sm transition-colors hover:bg-primary-container/90 sm:w-auto"
               >
                 Add Partner
               </button>
@@ -122,7 +122,7 @@ export function CompliancePartnerPortal() {
                   aria-label="Search partners"
                   type="text"
                   placeholder="Search partners..."
-                  className="w-full rounded-md border border-outline-variant bg-surface-container-lowest py-2 pl-9 pr-3 text-sm text-on-surface outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary"
+                  className="w-full rounded-md border border-outline-variant bg-surface-container-lowest py-2 pl-9 pr-3 text-body-md text-on-surface outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary"
                 />
               </div>
               <div className="flex items-center gap-1">
@@ -151,8 +151,8 @@ export function CompliancePartnerPortal() {
             </div>
           </div>
           <div className="overflow-x-auto">
-            <table className="min-w-[800px] w-full border-collapse text-left text-sm">
-              <thead className="bg-surface-container-low text-[11px] uppercase tracking-wide text-on-surface-variant">
+            <table className="min-w-[800px] w-full border-collapse text-left text-body-md">
+              <thead className="bg-surface-container-low text-label-sm uppercase text-on-surface-variant">
                 <tr>
                   <th className="p-3 pl-4">Company</th>
                   <th className="p-3">Country</th>
@@ -176,7 +176,7 @@ export function CompliancePartnerPortal() {
                     >
                       <td className="p-3 pl-4">
                         <div className="flex items-center gap-3">
-                          <div className="flex h-8 w-8 items-center justify-center rounded-sm bg-surface-container-highest text-[11px] font-semibold text-on-surface-variant">
+                          <div className="flex h-8 w-8 items-center justify-center rounded-sm bg-surface-container-highest text-label-sm text-on-surface-variant">
                             {row.initials}
                           </div>
                           <button className="text-primary transition-colors hover:underline">
@@ -194,7 +194,7 @@ export function CompliancePartnerPortal() {
                       </td>
                       <td className="p-3">
                         <span
-                          className={`inline-flex items-center gap-1 text-[11px] font-semibold ${
+                          className={`inline-flex items-center gap-1 text-label-sm ${
                             status.className
                           }`}
                         >
@@ -235,11 +235,11 @@ export function CompliancePartnerPortal() {
               <div>
                 <h3
                   id="add-partner-title"
-                  className="text-lg font-semibold text-on-surface"
+                  className="text-headline-md text-on-surface"
                 >
                   Add Partner
                 </h3>
-                <p className="mt-1 text-sm text-on-surface-variant">
+                <p className="mt-1 text-body-md text-on-surface-variant">
                   Invite a new ecosystem partner to share emissions data.
                 </p>
               </div>
@@ -253,52 +253,52 @@ export function CompliancePartnerPortal() {
               </button>
             </div>
             <div className="space-y-4 px-5 py-4">
-              <label className="flex flex-col gap-2 text-sm text-on-surface">
+              <label className="flex flex-col gap-2 text-label-md text-on-surface">
                 Partner name
                 <input
                   type="text"
                   placeholder="e.g. ACME Logistics"
-                  className="rounded-md border border-outline-variant bg-surface-container-lowest px-3 py-2 text-sm text-on-surface outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary"
+                  className="rounded-md border border-outline-variant bg-surface-container-lowest px-3 py-2 text-body-md text-on-surface outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary"
                 />
               </label>
               <div className="grid gap-4 sm:grid-cols-2">
-                <label className="flex flex-col gap-2 text-sm text-on-surface">
+                <label className="flex flex-col gap-2 text-label-md text-on-surface">
                   Country
                   <input
                     type="text"
                     placeholder="Country code"
-                    className="rounded-md border border-outline-variant bg-surface-container-lowest px-3 py-2 text-sm text-on-surface outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary"
+                    className="rounded-md border border-outline-variant bg-surface-container-lowest px-3 py-2 text-body-md text-on-surface outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary"
                   />
                 </label>
-                <label className="flex flex-col gap-2 text-sm text-on-surface">
+                <label className="flex flex-col gap-2 text-label-md text-on-surface">
                   Data format
                   <input
                     type="text"
                     placeholder="API, CSV, PDF"
-                    className="rounded-md border border-outline-variant bg-surface-container-lowest px-3 py-2 text-sm text-on-surface outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary"
+                    className="rounded-md border border-outline-variant bg-surface-container-lowest px-3 py-2 text-body-md text-on-surface outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary"
                   />
                 </label>
               </div>
-              <label className="flex flex-col gap-2 text-sm text-on-surface">
+              <label className="flex flex-col gap-2 text-label-md text-on-surface">
                 Contact email
                 <input
                   type="email"
                   placeholder="name@partner.com"
-                  className="rounded-md border border-outline-variant bg-surface-container-lowest px-3 py-2 text-sm text-on-surface outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary"
+                  className="rounded-md border border-outline-variant bg-surface-container-lowest px-3 py-2 text-body-md text-on-surface outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary"
                 />
               </label>
             </div>
             <div className="flex flex-col gap-2 border-t border-outline-variant px-5 py-4 sm:flex-row sm:justify-end">
               <button
                 type="button"
-                className="w-full rounded-md border border-outline-variant px-4 py-2 text-sm font-semibold text-on-surface transition-colors hover:bg-surface-container-high sm:w-auto"
+                className="w-full rounded-md border border-outline-variant px-4 py-2 text-body-md font-semibold text-on-surface transition-colors hover:bg-surface-container-high sm:w-auto"
                 onClick={() => setIsModalOpen(false)}
               >
                 Cancel
               </button>
               <button
                 type="button"
-                className="w-full rounded-md bg-primary px-4 py-2 text-sm font-semibold text-on-primary shadow-sm transition-colors hover:bg-primary/90 sm:w-auto"
+                className="w-full rounded-md bg-primary px-4 py-2 text-body-md font-semibold text-on-primary shadow-sm transition-colors hover:bg-primary/90 sm:w-auto"
                 onClick={() => setIsModalOpen(false)}
               >
                 Send Invite

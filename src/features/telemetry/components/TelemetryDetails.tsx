@@ -29,7 +29,7 @@ export function TelemetryDetails() {
               <span>Driver: John Doe</span>
             </div>
           </div>
-          <ObjectStatus state="Warning" className="font-bold">
+          <ObjectStatus state="Critical" className="font-bold">
             IDLING
           </ObjectStatus>
         </div>
@@ -105,7 +105,7 @@ export function TelemetryDetails() {
               </span>
               <span className="font-mono text-sm text-error font-bold">170 kg</span>
             </div>
-            <ProgressIndicator value={45} displayValue="45%" state="Error" />
+            <ProgressIndicator value={45} displayValue="45%" valueState="Negative" />
           </div>
 
           <div className="mt-2 pt-5 border-t border-outline-variant/50 flex items-start gap-3">
@@ -125,14 +125,14 @@ export function TelemetryDetails() {
         <List>
           <ListItemStandard
             additionalText="x4"
-            icon={<Icon name="attachment" />}
+            icon="attachment"
             description="ID: PLT-992-A"
           >
             Electronics Pallet
           </ListItemStandard>
           <ListItemStandard
             additionalText="x2"
-            icon={<Icon name="attachment" />}
+            icon="attachment"
             description="ID: CRT-104-B"
           >
             Machine Parts

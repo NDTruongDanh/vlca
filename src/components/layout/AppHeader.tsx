@@ -20,11 +20,7 @@ export function AppHeader() {
           />
         </div>
       </div>
-      <div className="flex-1 text-center">
-        <span className="font-bold text-on-surface">
-          Carbon Ledger Logistics
-        </span>
-      </div>
+
       <div className="flex items-center justify-end gap-2 flex-1">
         <Button
           design="Transparent"

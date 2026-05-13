@@ -94,13 +94,15 @@ export default function CompliancePage() {
         {activeTab === "partner" && <CompliancePartnerPortal />}
         {activeTab === "report" && (
           <section className="px-container-padding py-6">
-            <div className="mx-auto flex w-full max-w-[1400px] flex-col gap-6 xl:flex-row">
-              <div className="flex min-w-0 flex-1 flex-col gap-6">
-                <ReportExportTemplateSelector />
-                <ReportExportDataConfiguration />
-              </div>
-              <div className="w-full shrink-0 xl:w-[360px] xl:sticky xl:top-6">
-                <ReportExportPreviewPanel />
+            <div className="mx-auto w-full max-w-[1400px]">
+              <div className="relative flex flex-col gap-6 xl:pr-[384px]">
+                <div className="flex min-w-0 flex-col gap-6">
+                  <ReportExportTemplateSelector />
+                  <ReportExportDataConfiguration />
+                </div>
+                <div className="w-full xl:absolute xl:right-0 xl:top-0 xl:h-full xl:w-[360px]">
+                  <ReportExportPreviewPanel />
+                </div>
               </div>
             </div>
           </section>

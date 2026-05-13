@@ -32,18 +32,9 @@ export function AppSidebar() {
       aria-label="Main Navigation"
     >
       <div className="px-6 pb-6 pt-2 flex items-center gap-3 border-b border-outline-variant mb-4">
-        <div
-          className="w-10 h-10 rounded bg-primary flex items-center justify-center text-on-primary"
-          role="img"
-          aria-label="Carbon Ledger Logo"
-        >
-          <Truck size={24} fill="currentColor" />
-        </div>
-        <div>
-          <h1 className="font-bold text-primary">Carbon Ledger</h1>
-          <p className="text-xs text-on-surface-variant">
-            Enterprise Logistics
-          </p>
+        <img src="/icon.svg" alt="Carbon Ledger icon" className="w-15 h-15" />
+        <div className="flex flex-col gap-1">
+          <img src="/text.svg" alt="Carbon Ledger" className="h-10 w-auto" />
         </div>
       </div>
       <div className="flex-1 overflow-y-auto">

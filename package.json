@@ -12,6 +12,7 @@
     "@ui5/webcomponents": "^2.22.0",
     "@ui5/webcomponents-base": "^2.22.0",
     "@ui5/webcomponents-fiori": "^2.22.0",
+    "@ui5/webcomponents-icons": "^2.22.0",
     "@ui5/webcomponents-react": "^2.21.3",
     "@ui5/webcomponents-react-charts": "^2.21.3",
     "lucide-react": "^1.14.0",

@@ -1,55 +1,77 @@
 "use client";
 
-import { DonutChart } from "@ui5/webcomponents-react-charts/DonutChart";
+import React from "react";
 
 const dataset = [
-  { name: "Cruising", value: 98 },
-  { name: "Idling", value: 30 },
-  { name: "Offline", value: 22 }
+  { name: "Cruising", value: 98, percentage: 65, color: "var(--color-status-success)" },
+  { name: "Idling", value: 30, percentage: 20, color: "var(--color-status-warning)" },
+  { name: "Offline", value: 22, percentage: 15, color: "var(--color-on-surface-variant)" }
 ];
 
 export function FleetStatusDonut() {
+  const radius = 40;
+  const circumference = 2 * Math.PI * radius;
+  
+  let accumulatedOffset = 0;
+
   return (
-    <div className="col-span-12 md:col-span-4 bg-surface-container-lowest rounded-lg border border-outline-variant shadow-sm flex flex-col">
+    <div className="col-span-12 md:col-span-4 bg-surface-container-lowest rounded-lg border border-outline-variant shadow-sm flex flex-col h-full">
       <div className="px-6 py-4 border-b border-outline-variant">
         <h2 className="text-lg font-bold text-on-surface">Fleet Status</h2>
       </div>
-      <div className="p-6 flex flex-col items-center justify-center flex-1 gap-6">
-        <div className="w-full h-40">
-          <DonutChart
-            dataset={dataset}
-            dimension={{ accessor: "name" }}
-            measure={{ accessor: "value", colors: ["#107e3e", "#e9730c", "#717784"] }}
-            chartConfig={{
-              legendPosition: "bottom",
-              margin: { top: 0, right: 0, bottom: 0, left: 0 }
-            }}
-            centerLabel="150 Units"
-          />
-        </div>
-        <div className="w-full space-y-3">
-          <div className="flex items-center justify-between text-sm">
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-sm bg-status-success"></div>
-              <span className="text-on-surface">Cruising</span>
-            </div>
-            <span className="font-semibold">65% (98)</span>
-          </div>
-          <div className="flex items-center justify-between text-sm">
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-sm bg-status-warning"></div>
-              <span className="text-on-surface">Idling</span>
-            </div>
-            <span className="font-semibold">20% (30)</span>
-          </div>
-          <div className="flex items-center justify-between text-sm">
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-sm bg-on-surface-variant"></div>
-              <span className="text-on-surface">Offline</span>
-            </div>
-            <span className="font-semibold">15% (22)</span>
+      
+      <div className="p-6 flex flex-col items-center justify-center flex-1">
+        {/* Custom SVG Donut */}
+        <div className="relative w-48 h-48 mb-8">
+          <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90 transform">
+            {dataset.map((segment, index) => {
+              const dashArray = `${(segment.percentage * circumference) / 100} ${circumference}`;
+              const dashOffset = -accumulatedOffset;
+              accumulatedOffset += (segment.percentage * circumference) / 100;
+
+              return (
+                <circle
+                  key={index}
+                  cx="50"
+                  cy="50"
+                  r={radius}
+                  fill="transparent"
+                  stroke={segment.color}
+                  strokeWidth="10"
+                  strokeDasharray={dashArray}
+                  strokeDashoffset={dashOffset}
+                  className="transition-all duration-500 ease-in-out"
+                />
+              );
+            })}
+          </svg>
+          
+          {/* Center Label */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center">
+            <span className="text-4xl font-bold text-on-surface leading-none">150</span>
+            <span className="text-sm text-on-surface-variant font-medium mt-1">Units</span>
           </div>
         </div>
+
+        {/* Custom Legend */}
+        <ul className="w-full space-y-4" aria-label="Fleet status legend">
+          {dataset.map((item, index) => (
+            <li key={index} className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div 
+                  className="w-4 h-4 rounded-sm" 
+                  style={{ backgroundColor: item.color }}
+                  aria-hidden="true"
+                ></div>
+                <span className="text-sm font-medium text-on-surface">{item.name}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-bold text-on-surface">{item.percentage}%</span>
+                <span className="text-xs text-on-surface-variant">({item.value})</span>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

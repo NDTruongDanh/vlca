@@ -17,12 +17,15 @@ importers:
       '@ui5/webcomponents-fiori':
         specifier: ^2.22.0
         version: 2.22.0(react@19.2.4)
+      '@ui5/webcomponents-icons':
+        specifier: ^2.22.0
+        version: 2.22.0(react@19.2.4)
       '@ui5/webcomponents-react':
         specifier: ^2.21.3
-        version: 2.21.3(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(@ui5/webcomponents-base@2.22.0(react@19.2.4))(@ui5/webcomponents-fiori@2.22.0(react@19.2.4))(@ui5/webcomponents@2.22.0(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+        version: 2.21.3(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(@ui5/webcomponents-base@2.22.0(react@19.2.4))(@ui5/webcomponents-fiori@2.22.0(react@19.2.4))(@ui5/webcomponents-icons@2.22.0(react@19.2.4))(@ui5/webcomponents@2.22.0(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@ui5/webcomponents-react-charts':
         specifier: ^2.21.3
-        version: 2.21.3(@ui5/webcomponents-react-base@2.21.3(@types/react@19.2.14)(@ui5/webcomponents-base@2.22.0(react@19.2.4))(react@19.2.4))(@ui5/webcomponents-react@2.21.3(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(@ui5/webcomponents-base@2.22.0(react@19.2.4))(@ui5/webcomponents-fiori@2.22.0(react@19.2.4))(@ui5/webcomponents@2.22.0(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+        version: 2.21.3(@ui5/webcomponents-react-base@2.21.3(@types/react@19.2.14)(@ui5/webcomponents-base@2.22.0(react@19.2.4))(react@19.2.4))(@ui5/webcomponents-react@2.21.3(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(@ui5/webcomponents-base@2.22.0(react@19.2.4))(@ui5/webcomponents-fiori@2.22.0(react@19.2.4))(@ui5/webcomponents-icons@2.22.0(react@19.2.4))(@ui5/webcomponents@2.22.0(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       lucide-react:
         specifier: ^1.14.0
         version: 1.14.0(react@19.2.4)
@@ -2879,9 +2882,9 @@ snapshots:
       '@types/react': 19.2.14
       '@ui5/webcomponents-base': 2.22.0(react@19.2.4)
 
-  '@ui5/webcomponents-react-charts@2.21.3(@ui5/webcomponents-react-base@2.21.3(@types/react@19.2.14)(@ui5/webcomponents-base@2.22.0(react@19.2.4))(react@19.2.4))(@ui5/webcomponents-react@2.21.3(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(@ui5/webcomponents-base@2.22.0(react@19.2.4))(@ui5/webcomponents-fiori@2.22.0(react@19.2.4))(@ui5/webcomponents@2.22.0(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@ui5/webcomponents-react-charts@2.21.3(@ui5/webcomponents-react-base@2.21.3(@types/react@19.2.14)(@ui5/webcomponents-base@2.22.0(react@19.2.4))(react@19.2.4))(@ui5/webcomponents-react@2.21.3(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(@ui5/webcomponents-base@2.22.0(react@19.2.4))(@ui5/webcomponents-fiori@2.22.0(react@19.2.4))(@ui5/webcomponents-icons@2.22.0(react@19.2.4))(@ui5/webcomponents@2.22.0(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
-      '@ui5/webcomponents-react': 2.21.3(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(@ui5/webcomponents-base@2.22.0(react@19.2.4))(@ui5/webcomponents-fiori@2.22.0(react@19.2.4))(@ui5/webcomponents@2.22.0(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@ui5/webcomponents-react': 2.21.3(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(@ui5/webcomponents-base@2.22.0(react@19.2.4))(@ui5/webcomponents-fiori@2.22.0(react@19.2.4))(@ui5/webcomponents-icons@2.22.0(react@19.2.4))(@ui5/webcomponents@2.22.0(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@ui5/webcomponents-react-base': 2.21.3(@types/react@19.2.14)(@ui5/webcomponents-base@2.22.0(react@19.2.4))(react@19.2.4)
       clsx: 2.1.1
       react: 19.2.4
@@ -2890,7 +2893,7 @@ snapshots:
     transitivePeerDependencies:
       - react-dom
 
-  '@ui5/webcomponents-react@2.21.3(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(@ui5/webcomponents-base@2.22.0(react@19.2.4))(@ui5/webcomponents-fiori@2.22.0(react@19.2.4))(@ui5/webcomponents@2.22.0(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@ui5/webcomponents-react@2.21.3(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(@ui5/webcomponents-base@2.22.0(react@19.2.4))(@ui5/webcomponents-fiori@2.22.0(react@19.2.4))(@ui5/webcomponents-icons@2.22.0(react@19.2.4))(@ui5/webcomponents@2.22.0(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
       '@tanstack/react-virtual': 3.13.23(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@ui5/webcomponents': 2.22.0(react@19.2.4)
@@ -2904,6 +2907,7 @@ snapshots:
       '@types/react-dom': 19.2.3(@types/react@19.2.14)
       '@ui5/webcomponents-base': 2.22.0(react@19.2.4)
       '@ui5/webcomponents-fiori': 2.22.0(react@19.2.4)
+      '@ui5/webcomponents-icons': 2.22.0(react@19.2.4)
 
   '@ui5/webcomponents-theming@2.22.0(react@19.2.4)':
     dependencies:

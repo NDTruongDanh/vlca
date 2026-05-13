@@ -20,13 +20,19 @@ export function OperationalAlertsTable() {
     <div className="col-span-12 md:col-span-7 bg-surface-container-lowest rounded-lg border border-outline-variant shadow-sm flex flex-col overflow-hidden">
       <div className="px-6 py-4 border-b border-outline-variant flex justify-between items-center bg-surface-container-lowest">
         <h2 className="text-lg font-bold text-on-surface">Operational Alerts</h2>
-        <span className="px-2 py-0.5 bg-error-container text-on-error-container text-xs font-bold rounded-full">4 New</span>
+        <span 
+          className="px-2 py-0.5 bg-error-container text-on-error-container text-xs font-bold rounded-full"
+          aria-label="4 new alerts"
+        >
+          4 New
+        </span>
       </div>
-      <div className="flex-1 overflow-y-auto max-h-[300px]">
+      <div className="flex-1 overflow-y-auto max-h-[300px] px-6 pb-4">
         <Table
+          accessibleName="Operational Alerts Table"
           headerRow={
             <TableHeaderRow>
-              <TableHeaderCell width="48px"></TableHeaderCell>
+              <TableHeaderCell width="48px" aria-hidden="true"></TableHeaderCell>
               <TableHeaderCell>Alert Details</TableHeaderCell>
               <TableHeaderCell width="100px" horizontalAlign="End">Time</TableHeaderCell>
             </TableHeaderRow>
@@ -35,7 +41,7 @@ export function OperationalAlertsTable() {
           {alerts.map((alert, idx) => (
             <TableRow key={idx}>
               <TableCell>
-                <alert.Icon className={alert.color} size={20} />
+                <alert.Icon className={alert.color} size={20} aria-hidden="true" />
               </TableCell>
               <TableCell>
                 <div className="flex flex-col">

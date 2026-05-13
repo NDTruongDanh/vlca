@@ -8,7 +8,7 @@ const formatOptions = [
 
 export function ReportExportPreviewPanel() {
   return (
-    <section className="flex h-full flex-col overflow-hidden rounded-xl border border-outline-variant bg-surface-container-lowest shadow-sm">
+    <section className="flex h-full min-h-0 flex-col overflow-hidden rounded-xl border border-outline-variant bg-surface-container-lowest shadow-sm">
       <div className="flex items-center justify-between border-b border-outline-variant bg-white p-4">
         <h2 className="text-base font-semibold text-on-surface">
           Document Preview
@@ -22,8 +22,8 @@ export function ReportExportPreviewPanel() {
         </button>
       </div>
 
-      <div className="flex flex-1 flex-col gap-6 overflow-y-auto bg-surface-container-low p-4">
-        <div className="relative aspect-[1/1.4] w-full overflow-hidden rounded-lg border border-outline-variant bg-white shadow-sm">
+      <div className="flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto bg-surface-container-low p-4">
+        <div className="relative min-h-0 flex-1 overflow-hidden rounded-lg border border-outline-variant bg-white shadow-sm">
           <img
             alt="Report preview"
             className="h-full w-full object-cover object-top"
@@ -66,9 +66,6 @@ export function ReportExportPreviewPanel() {
         >
           Generate Report
         </button>
-        <p className="text-center text-xs text-on-surface-variant">
-          Generates a secure, timestamped file.
-        </p>
       </div>
     </section>
   );

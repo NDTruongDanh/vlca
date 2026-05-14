@@ -30,15 +30,14 @@ export function useExpectedRoute(start: Coordinate, destination: Coordinate) {
       }
     }
 
-    // Throttle requests to OSRM API (every 2 seconds max)
-    const timeoutId = setTimeout(fetchRoute, 2000);
+    fetchRoute();
 
     return () => {
       isMounted = false;
-      clearTimeout(timeoutId);
     };
+    // Only re-fetch if destination changes or if we are at the very start
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [start.lat, start.lng, destination.lat, destination.lng]);
+  }, [destination.lat, destination.lng]);
 
   return { route, loading, error };
 }

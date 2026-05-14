@@ -15,7 +15,7 @@ export function RouteLine({ positions, color, dashArray }: RouteLineProps) {
   return (
     <Polyline
       positions={leafletPositions}
-      pathOptions={{ color, dashArray, weight: 4 }}
+      pathOptions={{ color, dashArray, weight: 4, smoothFactor: 1, noClip: true }}
     />
   );
 }

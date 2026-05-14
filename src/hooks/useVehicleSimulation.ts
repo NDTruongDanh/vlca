@@ -1,37 +1,50 @@
 import { useState, useEffect, useRef } from "react";
 import { Vehicle, Coordinate } from "../types/tracking";
+import { getRoute } from "../lib/osrm";
 
+/**
+ * Simulates a vehicle moving along a road route fetched from OSRM.
+ */
 export function useVehicleSimulation(initialVehicle: Vehicle) {
   const [vehicle, setVehicle] = useState<Vehicle>(initialVehicle);
+  const [route, setRoute] = useState<Coordinate[]>([]);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const indexRef = useRef(0);
 
+  // Fetch the road route once on mount
   useEffect(() => {
+    async function fetchPath() {
+      const roadRoute = await getRoute(initialVehicle.currentPosition, initialVehicle.destination);
+      if (roadRoute.length > 0) {
+        setRoute(roadRoute);
+        setVehicle(prev => ({
+          ...prev,
+          currentPosition: roadRoute[0],
+          history: [roadRoute[0]]
+        }));
+      }
+    }
+    fetchPath();
+  }, [initialVehicle.currentPosition, initialVehicle.destination]);
+
+  // Move the vehicle along the fetched route
+  useEffect(() => {
+    if (route.length === 0) return;
+
     intervalRef.current = setInterval(() => {
       setVehicle((prev) => {
-        const { currentPosition, destination, history } = prev;
-        
-        // Simple linear interpolation towards destination
-        const step = 0.0005; // Adjust for speed
-        const latDiff = destination.lat - currentPosition.lat;
-        const lngDiff = destination.lng - currentPosition.lng;
-        
-        const distance = Math.sqrt(latDiff * latDiff + lngDiff * lngDiff);
-        
-        if (distance < step) {
-          // If we reached the destination (or very close), just stay there or loop
-          // For prototype, let's just stop or restart after a while
-          return prev; 
+        if (indexRef.current >= route.length - 1) {
+          if (intervalRef.current) clearInterval(intervalRef.current);
+          return prev;
         }
 
-        const newLat = currentPosition.lat + (latDiff / distance) * step;
-        const newLng = currentPosition.lng + (lngDiff / distance) * step;
-        
-        const newPosition: Coordinate = { lat: newLat, lng: newLng };
+        indexRef.current += 1;
+        const newPosition = route[indexRef.current];
 
         return {
           ...prev,
           currentPosition: newPosition,
-          history: [...history, newPosition],
+          history: [...prev.history, newPosition],
         };
       });
     }, 1000);
@@ -39,7 +52,7 @@ export function useVehicleSimulation(initialVehicle: Vehicle) {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, []);
+  }, [route]);
 
   return vehicle;
 }

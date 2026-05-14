@@ -1,8 +1,9 @@
 "use client";
 
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { Vehicle } from "../../types/tracking";
+import { useEffect } from "react";
+import { Vehicle, Coordinate } from "../../types/tracking";
 import { useVehicleSimulation } from "../../hooks/useVehicleSimulation";
 import { useExpectedRoute } from "../../hooks/useExpectedRoute";
 import { VehicleMarker } from "./VehicleMarker";
@@ -10,6 +11,14 @@ import { RouteLine } from "./RouteLine";
 
 interface FleetMapProps {
   initialVehicle: Vehicle;
+}
+
+function MapRecenter({ position }: { position: Coordinate }) {
+  const map = useMap();
+  useEffect(() => {
+    map.setView([position.lat, position.lng]);
+  }, [position, map]);
+  return null;
 }
 
 export default function FleetMap({ initialVehicle }: FleetMapProps) {
@@ -25,6 +34,8 @@ export default function FleetMap({ initialVehicle }: FleetMapProps) {
         center={[vehicle.currentPosition.lat, vehicle.currentPosition.lng]}
         zoom={14}
         scrollWheelZoom={true}
+        zoomSnap={0.1}
+        zoomDelta={0.1}
         style={{ height: "100%", width: "100%" }}
       >
         <TileLayer
@@ -32,13 +43,15 @@ export default function FleetMap({ initialVehicle }: FleetMapProps) {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
+        <MapRecenter position={vehicle.currentPosition} />
+
         {/* Traveled Route (Solid) */}
         <RouteLine positions={vehicle.history} color="blue" />
 
-        {/* Expected Route (Dashed) */}
-        {!loading && (
+        {/* Expected Route (Dashed) - Only remaining part */}
+        {!loading && expectedRoute.length > 0 && (
           <RouteLine
-            positions={expectedRoute}
+            positions={expectedRoute.slice(vehicle.history.length - 1)}
             color="red"
             dashArray="10, 10"
           />

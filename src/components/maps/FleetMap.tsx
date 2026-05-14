@@ -1,38 +1,33 @@
 "use client";
 
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Vehicle, Coordinate } from "../../types/tracking";
-import { useVehicleSimulation } from "../../hooks/useVehicleSimulation";
-import { useExpectedRoute } from "../../hooks/useExpectedRoute";
-import { VehicleMarker } from "./VehicleMarker";
-import { RouteLine } from "./RouteLine";
+import { SingleVehicleLayer } from "./SingleVehicleLayer";
 
 interface FleetMapProps {
-  initialVehicle: Vehicle;
+  vehicles: Vehicle[];
 }
 
 function MapRecenter({ position }: { position: Coordinate }) {
   const map = useMap();
   useEffect(() => {
     map.setView([position.lat, position.lng]);
-  }, [position, map]);
+  }, [position.lat, position.lng, map]);
   return null;
 }
 
-export default function FleetMap({ initialVehicle }: FleetMapProps) {
-  const vehicle = useVehicleSimulation(initialVehicle);
-  const { route: expectedRoute, loading } = useExpectedRoute(
-    vehicle.currentPosition,
-    vehicle.destination
-  );
+export default function FleetMap({ vehicles }: FleetMapProps) {
+  const [selectedVehicleId, setSelectedVehicleId] = useState<string | null>(vehicles[0]?.id || null);
+
+  const selectedVehicle = vehicles.find(v => v.id === selectedVehicleId);
 
   return (
     <div style={{ height: "100vh", width: "100%" }}>
       <MapContainer
-        center={[vehicle.currentPosition.lat, vehicle.currentPosition.lng]}
-        zoom={14}
+        center={[vehicles[0].currentPosition.lat, vehicles[0].currentPosition.lng]}
+        zoom={13}
         scrollWheelZoom={true}
         zoomSnap={0.1}
         zoomDelta={0.1}
@@ -43,27 +38,20 @@ export default function FleetMap({ initialVehicle }: FleetMapProps) {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        <MapRecenter position={vehicle.currentPosition} />
-
-        {/* Traveled Route (Solid) */}
-        <RouteLine positions={vehicle.history} color="blue" />
-
-        {/* Expected Route (Dashed) - Only remaining part */}
-        {!loading && expectedRoute.length > 0 && (
-          <RouteLine
-            positions={expectedRoute.slice(vehicle.history.length - 1)}
-            color="red"
-            dashArray="10, 10"
-          />
+        {/* Recenter on the selected vehicle for tracking */}
+        {selectedVehicle && (
+          <MapRecenter position={selectedVehicle.currentPosition} />
         )}
 
-        {/* Vehicle Marker */}
-        <VehicleMarker vehicle={vehicle} />
-
-        {/* Destination Marker */}
-        <Marker position={[vehicle.destination.lat, vehicle.destination.lng]}>
-          <Popup>Destination: {vehicle.name}</Popup>
-        </Marker>
+        {/* Render layers for all vehicles */}
+        {vehicles.map((v) => (
+          <SingleVehicleLayer 
+            key={v.id} 
+            initialVehicle={v} 
+            isSelected={v.id === selectedVehicleId}
+            onSelect={setSelectedVehicleId}
+          />
+        ))}
       </MapContainer>
     </div>
   );

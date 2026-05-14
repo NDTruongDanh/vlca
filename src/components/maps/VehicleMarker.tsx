@@ -18,15 +18,19 @@ const truckIcon = L.divIcon({
 
 interface VehicleMarkerProps {
   vehicle: Vehicle;
+  onSelect?: (id: string) => void;
 }
 
-export function VehicleMarker({ vehicle }: VehicleMarkerProps) {
-  const { currentPosition, name } = vehicle;
+export function VehicleMarker({ vehicle, onSelect }: VehicleMarkerProps) {
+  const { currentPosition, name, id } = vehicle;
 
   return (
     <Marker 
       position={[currentPosition.lat, currentPosition.lng]}
       icon={truckIcon}
+      eventHandlers={{
+        click: () => onSelect?.(id),
+      }}
     >
       <Popup>
         <strong>{name}</strong>

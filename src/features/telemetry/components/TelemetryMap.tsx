@@ -22,13 +22,11 @@ const FleetMap = dynamic(() => import("@/components/maps/FleetMap"), {
 });
 
 export function TelemetryMap() {
-  const initialVehicle = mockVehicles[0];
-
   return (
     <div className="flex-1 relative bg-[#1E2329] overflow-hidden">
       {/* Real-time Leaflet Map Component */}
       <div className="absolute inset-0 w-full h-full z-0">
-        <FleetMap initialVehicle={initialVehicle} />
+        <FleetMap vehicles={mockVehicles} />
       </div>
 
       {/* Map Overlay Gradient for readability (if needed, but Leaflet covers the area) */}

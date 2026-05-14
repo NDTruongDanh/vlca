@@ -4,55 +4,60 @@ import { getRoute } from "../lib/osrm";
 
 /**
  * Simulates a vehicle moving along a road route fetched from OSRM.
+ * Returns the vehicle state, the full planned path, and the current index.
  */
 export function useVehicleSimulation(initialVehicle: Vehicle) {
   const [vehicle, setVehicle] = useState<Vehicle>(initialVehicle);
-  const [route, setRoute] = useState<Coordinate[]>([]);
+  const [plannedPath, setPlannedPath] = useState<Coordinate[]>([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  const indexRef = useRef(0);
 
   // Fetch the road route once on mount
   useEffect(() => {
     async function fetchPath() {
       const roadRoute = await getRoute(initialVehicle.currentPosition, initialVehicle.destination);
       if (roadRoute.length > 0) {
-        setRoute(roadRoute);
+        setPlannedPath(roadRoute);
         setVehicle(prev => ({
           ...prev,
           currentPosition: roadRoute[0],
           history: [roadRoute[0]]
         }));
+        setCurrentIndex(0);
       }
     }
     fetchPath();
-  }, [initialVehicle.currentPosition, initialVehicle.destination]);
+  }, [initialVehicle.currentPosition.lat, initialVehicle.currentPosition.lng, initialVehicle.destination.lat, initialVehicle.destination.lng]);
 
   // Move the vehicle along the fetched route
   useEffect(() => {
-    if (route.length === 0) return;
+    if (plannedPath.length === 0) return;
 
     intervalRef.current = setInterval(() => {
-      setVehicle((prev) => {
-        if (indexRef.current >= route.length - 1) {
+      setCurrentIndex((prevIndex) => {
+        const nextIndex = prevIndex + 1;
+        
+        if (nextIndex >= plannedPath.length) {
           if (intervalRef.current) clearInterval(intervalRef.current);
-          return prev;
+          return prevIndex;
         }
 
-        indexRef.current += 1;
-        const newPosition = route[indexRef.current];
-
-        return {
-          ...prev,
+        const newPosition = plannedPath[nextIndex];
+        
+        setVehicle((prevVehicle) => ({
+          ...prevVehicle,
           currentPosition: newPosition,
-          history: [...prev.history, newPosition],
-        };
+          history: [...prevVehicle.history, newPosition],
+        }));
+
+        return nextIndex;
       });
     }, 1000);
 
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [route]);
+  }, [plannedPath]);
 
-  return vehicle;
+  return { vehicle, plannedPath, currentIndex };
 }

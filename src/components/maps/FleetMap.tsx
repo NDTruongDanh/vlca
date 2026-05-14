@@ -2,7 +2,7 @@
 
 import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Vehicle, Coordinate } from "../../types/tracking";
 import { SingleVehicleLayer } from "./SingleVehicleLayer";
 
@@ -20,8 +20,17 @@ function MapRecenter({ position }: { position: Coordinate }) {
 
 export default function FleetMap({ vehicles }: FleetMapProps) {
   const [selectedVehicleId, setSelectedVehicleId] = useState<string | null>(vehicles[0]?.id || null);
+  const [liveVehicles, setLiveVehicles] = useState<Record<string, Vehicle>>({});
 
-  const selectedVehicle = vehicles.find(v => v.id === selectedVehicleId);
+  const handleVehicleUpdate = useCallback((vehicle: Vehicle) => {
+    setLiveVehicles(prev => ({
+      ...prev,
+      [vehicle.id]: vehicle
+    }));
+  }, []);
+
+  const selectedVehicle = selectedVehicleId ? liveVehicles[selectedVehicleId] : null;
+  const recenterPosition = selectedVehicle?.currentPosition;
 
   return (
     <div style={{ height: "100vh", width: "100%" }}>
@@ -39,8 +48,8 @@ export default function FleetMap({ vehicles }: FleetMapProps) {
         />
 
         {/* Recenter on the selected vehicle for tracking */}
-        {selectedVehicle && (
-          <MapRecenter position={selectedVehicle.currentPosition} />
+        {recenterPosition && (
+          <MapRecenter position={recenterPosition} />
         )}
 
         {/* Render layers for all vehicles */}
@@ -50,6 +59,7 @@ export default function FleetMap({ vehicles }: FleetMapProps) {
             initialVehicle={v} 
             isSelected={v.id === selectedVehicleId}
             onSelect={setSelectedVehicleId}
+            onUpdate={handleVehicleUpdate}
           />
         ))}
       </MapContainer>

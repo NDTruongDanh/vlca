@@ -4,6 +4,7 @@ import "./globals.css";
 import { UI5Provider } from "./provider";
 import { AppSidebar } from "@/components/layout/AppSidebar";
 import { AppHeader } from "@/components/layout/AppHeader";
+import { Analytics } from "@vercel/analytics/react";
 
 const ibmPlexSans = IBM_Plex_Sans({
   variable: "--font-ibm-plex-sans",
@@ -46,6 +47,7 @@ export default function RootLayout({
             </main>
           </div>
         </UI5Provider>
+        <Analytics />
       </body>
     </html>
   );
